@@ -10,7 +10,19 @@
  */
 var QRCode;
 
-(function () {
+
+(function (root, factory) {
+
+	/* CommonJS */
+  if (typeof exports == 'object') module.exports = factory()
+
+  /* AMD module */
+  else if (typeof define == 'function' && define.amd) define(factory)
+
+  /* Global */
+  else root.QRCode = factory()
+
+}(this,function () {
 	//---------------------------------------------------------------------
 	// QRCode for JavaScript
 	//
@@ -619,4 +631,4 @@ var QRCode;
 	 * @name QRCode.CorrectLevel
 	 */
 	QRCode.CorrectLevel = QRErrorCorrectLevel;
-})();
+}));
