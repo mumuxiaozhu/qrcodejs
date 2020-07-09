@@ -631,4 +631,5 @@ var QRCode;
 	 * @name QRCode.CorrectLevel
 	 */
 	QRCode.CorrectLevel = QRErrorCorrectLevel;
+	return QRCode;
 }));
