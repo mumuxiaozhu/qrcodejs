@@ -274,6 +274,14 @@ var QRCode;
 		return Drawing;
 	})() : (function () { // Drawing in Canvas
 		function _onMakeImage() {
+			this._elImage.onload = ()=>{
+				//图片加载完成
+				this._htOption.success&&this._htOption.success()
+			}
+			this._elImage.onerror= 	this._elImage.onabort= ()=>{
+				this._htOption.fail&&this._htOption.fail()
+
+			}
 			this._elImage.src = this._elCanvas.toDataURL("image/png");
 			this._elImage.style.display = "block";
 			this._elCanvas.style.display = "none";			
